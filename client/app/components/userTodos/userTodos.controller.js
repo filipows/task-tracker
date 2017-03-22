@@ -34,8 +34,8 @@ class UserTodosController {
     // $http request to update resources
   }
 
-  log(){
-    console.log('cclik');
+  log(obj){
+    console.log(obj);
   }
 
   removeTodo(todo) {

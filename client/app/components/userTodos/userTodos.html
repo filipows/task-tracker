@@ -30,7 +30,7 @@
         <a ng-repeat="todo in $ctrl.getFilteredTodos()" 
           class="list-group-item list-group-item-action todo-item" ng-class="{'line-through': todo.completed}" 
           ng-click="$ctrl.toggle(todo)">
-          <input type="checkbox" ng-model="todo.completed">&nbsp; {{todo.title}}
+          <input type="checkbox" disabled ng-model="todo.completed">&nbsp; {{todo.title}}
           <button class="btn btn-xs btn-danger pull-right btn-remove-todo" ng-click="$ctrl.removeTodo(todo)">x</button>
         </a>
       </ul>

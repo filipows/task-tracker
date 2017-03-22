@@ -1,9 +1,12 @@
 class NavbarController {
-  constructor() {
+  constructor($state) {
     this.name = 'navbar';
+    this.state = $state;
   }
 }
 
 
+
+NavbarController.$inject = ['$state'];
 
 export default NavbarController;
