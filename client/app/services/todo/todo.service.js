@@ -12,7 +12,6 @@ class TodoService {
   getTodoByUserId(userId) {
     return this.getAllTodos().then( (allTodos) => {
       let filtered = allTodos.filter((todo) => todo.userId === userId ) 
-      console.log(filtered);
       return filtered;
     });
   }

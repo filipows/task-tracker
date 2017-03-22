@@ -5,8 +5,6 @@ class NavbarController {
   }
 }
 
-
-
 NavbarController.$inject = ['$state'];
 
 export default NavbarController;

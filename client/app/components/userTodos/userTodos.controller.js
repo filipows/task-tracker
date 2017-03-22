@@ -34,16 +34,14 @@ class UserTodosController {
     // $http request to update resources
   }
 
-  log(obj){
-    console.log(obj);
-  }
-
   removeTodo(todo) {
     this.todos.splice(this.todos.findIndex( (el) => todo.id === el.id ), 1);
+    // $http request to update resources
   }
 
   toggle(todo) {
     todo.completed = !todo.completed;
+    // $http request to update resources    
   }
 
   $onInit() {

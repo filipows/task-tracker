@@ -8,7 +8,6 @@ class UserInfoController {
 
   $onInit() {
     this.UserService.getUserById(this.userId).then( (user)=> {
-      console.log(user);
       this.user = user;
       this.loading = false;
     });
