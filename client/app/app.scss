@@ -19,5 +19,14 @@
     left: 50%;
     transform: translate(-50%,-50%);
   }
+
+    /*view change animations*/
+    .ng-enter {
+        transition: .5s;
+        opacity: 0;
+    }
+    .ng-enter-active {
+        opacity: 1;
+    }  
 }
 
