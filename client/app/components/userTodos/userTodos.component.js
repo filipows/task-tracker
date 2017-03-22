@@ -4,7 +4,9 @@ import './userTodos.scss';
 
 let userTodosComponent = {
   restrict: 'E',
-  bindings: {},
+  bindings: {
+    userId: '='
+  },
   template,
   controller
 };

@@ -1,3 +1,32 @@
-<div>
-  <h1>{{ $ctrl.name }}</h1>
+<div class="well well">
+  <h4>User's todos: </h4>
+  <div class="row input-todo">
+    <div class="input-group">
+      <input 
+        ng-model="$ctrl.newTodo" 
+        type="text" 
+        class="form-control" 
+        placeholder="What else needs to be done?"
+        ng-keyup="$event.keyCode == 13 && $ctrl.addTodo($ctrl.newTodo)">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button" ng-click="$ctrl.addTodo($ctrl.newTodo)">+</button>
+      </span>
+    </div>
+  </div>
+  <br />
+  <div class="filters">Show: 
+    <button type="button" class="btn btn-xs" ng-click="$ctrl.filter='All'" ng-class="{'btn-primary': $ctrl.filter=='All'}">All</button>
+    <button type="button" class="btn btn-xs" ng-click="$ctrl.filter='Active'" ng-class="{'btn-primary': $ctrl.filter=='Active'}">Active</button>
+    <button type="button" class="btn btn-xs" ng-click="$ctrl.filter='Completed'" ng-class="{'btn-primary': $ctrl.filter=='Completed'}">Completed</button>
+  </div>
+  <div class="row">
+    <ul class="list-group todo-list">
+      <a ng-repeat="todo in $ctrl.getFilteredTodos()" 
+        class="list-group-item list-group-item-action" ng-class="{'line-through': todo.completed}" 
+        ng-click="$ctrl.toggle(todo)">
+        <input type="checkbox" ng-model="todo.completed">&nbsp; {{todo.title}}
+      </a>
+    </ul>
+
+  </div>
 </div>

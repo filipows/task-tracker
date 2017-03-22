@@ -12,8 +12,8 @@
       <a ng-repeat="user in $ctrl.users | filter:searchText" 
         ui-sref="user({userId: user.id})" class="list-group-item list-group-item-action">
         {{user.id}}. {{user.name}} ({{user.username}})
-        <span class="badge alert-warning">Uncompleted: 4</span>
-        <span class="badge alert-success">Completed: 14</span>
+        <span class="badge alert-warning">Active: {{user.tasksActive}}</span>
+        <span class="badge alert-success">Completed: {{user.tasksCompleted}}</span>
       </a>
     </ul>
   </div>

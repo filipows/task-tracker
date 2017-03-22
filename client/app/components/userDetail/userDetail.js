@@ -10,7 +10,7 @@ let userDetailModule = angular.module('userDetail', [
   "ngInject";
   $stateProvider
     .state('user', {
-      url: '/user/:userId',
+      url: '/user/{userId:int}',
       component: 'userDetail'
     });
 })

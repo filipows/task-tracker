@@ -1,16 +1,15 @@
 import angular from 'angular';
 
-const API_URL = 'http://jsonplaceholder.typicode.com';
-
 class UserService {
-  constructor($http, $q) {
+  constructor(Constants, $http, $q) {
+    this.Constants = Constants;
     this.$http = $http;
     this.$q = $q;
   }
 
   getUserById(userId) {
     let deferred = this.$q.defer();
-    this.$http.get(API_URL + `/users/${userId}`)
+    this.$http.get(this.Constants.API_URL + `/users/${userId}`)
       .then((resp) => {   
           deferred.resolve(resp.data);
       }, (err) => {
@@ -21,7 +20,7 @@ class UserService {
 
   getAllUsers() {
     let deferred = this.$q.defer();
-    this.$http.get(API_URL + '/users')
+    this.$http.get(this.Constants.API_URL + '/users')
       .then((resp) => {   
           deferred.resolve(resp.data);
       }, (err) => {
@@ -31,6 +30,6 @@ class UserService {
   }
 }
 
-UserService.$inject = ['$http', '$q'];
+UserService.$inject = ['Constants', '$http', '$q'];
 
 export default UserService;

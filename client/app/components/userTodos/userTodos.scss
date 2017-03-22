@@ -1,3 +1,19 @@
-.userTodos {
-  color: red;
+user-todos {
+  .input-todo {
+    padding: 0 10px;
+  }
+
+  .todo-list {
+    cursor: pointer;
+    padding: 10px;
+  }
+
+  .filters {
+    text-align: right;
+  }
+}
+
+
+.line-through {
+  text-decoration: line-through;
 }
