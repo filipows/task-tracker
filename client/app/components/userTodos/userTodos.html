@@ -1,16 +1,18 @@
 <div class="well well">
   <h4>User's todos: </h4>
   <div class="row input-todo">
-    <div class="input-group">
-      <input 
-        ng-model="$ctrl.newTodo" 
-        type="text" 
-        class="form-control" 
-        placeholder="What else needs to be done?"
-        ng-keyup="$event.keyCode == 13 && $ctrl.addTodo($ctrl.newTodo)">
-      <span class="input-group-btn">
-        <button class="btn btn-default" type="button" ng-click="$ctrl.addTodo($ctrl.newTodo)">+</button>
-      </span>
+    <div class="col-md-12">
+      <div class="input-group">
+        <input 
+          ng-model="$ctrl.newTodo" 
+          type="text" 
+          class="form-control" 
+          placeholder="What else needs to be done?"
+          ng-keyup="$event.keyCode == 13 && $ctrl.addTodo($ctrl.newTodo)">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button" ng-click="$ctrl.addTodo($ctrl.newTodo)">+</button>
+        </span>
+      </div>
     </div>
   </div>
   <br />
@@ -20,13 +22,18 @@
     <button type="button" class="btn btn-xs" ng-click="$ctrl.filter='Completed'" ng-class="{'btn-primary': $ctrl.filter=='Completed'}">Completed</button>
   </div>
   <div class="row">
-    <ul class="list-group todo-list">
-      <a ng-repeat="todo in $ctrl.getFilteredTodos()" 
-        class="list-group-item list-group-item-action" ng-class="{'line-through': todo.completed}" 
-        ng-click="$ctrl.toggle(todo)">
-        <input type="checkbox" ng-model="todo.completed">&nbsp; {{todo.title}}
-      </a>
-    </ul>
-
+    <div class="col-md-12">
+      <div class="spinner" ng-if="$ctrl.loading">
+        <i class="fa fa-spinner fa-spin" style="font-size:48px;"></i>
+      </div>
+      <ul ng-if="!$ctrl.loading" class="list-group todo-list">
+        <a ng-repeat="todo in $ctrl.getFilteredTodos()" 
+          class="list-group-item list-group-item-action todo-item" ng-class="{'line-through': todo.completed}" 
+          ng-click="$ctrl.toggle(todo)">
+          <input type="checkbox" ng-model="todo.completed">&nbsp; {{todo.title}}
+          <button class="btn btn-xs btn-danger pull-right btn-remove-todo" ng-click="$ctrl.removeTodo(todo)">x</button>
+        </a>
+      </ul>
+    </div>
   </div>
 </div>

@@ -29,9 +29,17 @@ class UserTodosController {
       this.todos.unshift(newTodo);
       this.newTodo = '';
     } else {
-      
+
     }
     // $http request to update resources
+  }
+
+  log(){
+    console.log('cclik');
+  }
+
+  removeTodo(todo) {
+    this.todos.splice(this.todos.findIndex( (el) => todo.id === el.id ), 1);
   }
 
   toggle(todo) {

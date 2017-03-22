@@ -1,16 +1,29 @@
 user-todos {
   .input-todo {
-    padding: 0 10px;
+    // padding: 0 10px;
   }
 
   .todo-list {
     cursor: pointer;
-    padding: 10px;
+    padding-top: 10px;
   }
 
   .filters {
     text-align: right;
   }
+
+  .btn-remove-todo {
+    opacity: 0;
+  }
+
+  .todo-item:hover .btn-remove-todo {
+    opacity: 0.3;
+  }
+
+  .todo-item:hover .btn-remove-todo:hover {
+    opacity: 1;
+  }
+  
 }
 
 
